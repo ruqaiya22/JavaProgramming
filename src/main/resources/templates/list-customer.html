@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}"/>
+    <style>
+
+.btn0{
+    background-color: royalblue;
+    border-radius: 10px;
+    color:white;
+}
+
+.btn0:hover{
+    background-color: cornflowerblue;
+}
+
+a{
+text-decoration: none;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Customer Directory</h3>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>destination</th>
+                            <th>flag</th>
+                            <th>flight_no</th>
+                            <th>flight_rate</th>
+                            <th>hotel_name</th>
+                            <th>hotel_rate</th>
+                            <th>package Booking</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="tempCustomer: ${listing}">
+                            <td th:text="${tempCustomer.id}"></td>
+                            <td th:text="${tempCustomer.destination}"></td>
+                            <td th:text="${tempCustomer.flag}"></td>
+                            <td th:text="${tempCustomer.flight_no}"></td>
+                            <td th:text="${tempCustomer.flight_rate}"></td>
+                            <td th:text="${tempCustomer.hotel_name}"></td>
+                            <td th:text="${tempCustomer.hotel_rate}"></td>
+
+                            <td><form action="#" th:action="@{booking}" method="POST">
+
+								<input type="hidden" name="id" th:value="${tempCustomer.id}" />
+								<button type="submit" class="btn btn-info btn-sm me-1" style="float:left;">Book</button>
+
+							</form></td>
+                            
+                           
+                         
+                        </tr>
+                    </tbody>
+                   
+                </table>
+                <button type="btn" class="btn0"><a th:href="@{/return}">Back to home page</a></button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="@{js/bootstrap.js}"></script>
+</body>
+</html>

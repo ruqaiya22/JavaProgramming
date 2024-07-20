@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{css/EmployeeStyle.css}" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body>
+
+  <!-- <div class="container-fluid top">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <header>
+          <input type="checkbox" name="" id="chk1">
+          <div class="logo"><img src="images/logo1.png" class="lo1"> </div>
+
+          <div class="search-box">
+            <form>
+              <input type="text" name="search" id="srch" placeholder="Search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+
+          </div>
+
+          <ul>
+            <li><a href="#" class="anchor">Home</a></li>
+            <li><a href="#" class="anchor">About</a></li>
+            <li><a href="#" class="anchor">Services</a></li>
+            <li><a href="#" class="anchor">Destination</a></li>
+            <li><a href="#" class="anchor">Contact</a></li>
+
+            <li class="menu-list">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+
+            </li>
+          </ul>
+
+          <div class="menu">
+            <label for="chk1">
+              <i class=" fa fa-bars"></i>
+            </label>
+
+
+          </div>
+      </div>
+      </header>
+
+    </div> -->
+
+
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+
+        <div class="logo"><img src="images/logo1.png" class="lo1"> </div>
+
+        <div class="search-box">
+          <form>
+            <input type="text" name="search" id="srch" placeholder="Search">
+            <button type="submit"><i class="fa fa-search "></i></button>
+          </form>
+
+        </div>
+        <!-- toggler -->
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- sidebar -->
+        <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <!-- sidebar-header -->
+          <div class="offcanvas-header text-white border-bottom shadow-none">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Travelista</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <!-- sidebar-body -->
+          <div class="offcanvas-body d-flex flex-column p-4 p-lg-0">
+            <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-4 text-white">
+              <li class="nav-item">
+                <a class="nav-link anchor mx-2" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link anchor  mx-2" href="#about1">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link anchor  mx-2" href="#service1">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link anchor  mx-2" href="#desti1">Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link anchor  mx-2" href="#faq1">FAQ's</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link anchor  mx-2" href="#footer1">Contact</a>
+              </li>
+              <!-- sign in & Add to Cart -->
+              <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center flex-grow-3 gap-3">
+                <li class="menu-list">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+
+                </li>
+              </div>
+
+              <button id="loginButton" class="buttonn1">Login</button>
+              <div id="loginModal" class="modal">
+                <div class="modal-content">
+                  <span class="close-button">&times;</span>
+                  <h2>Login</h2>
+                  <form id="loginForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+              </div>
+
+
+            </ul>
+            <!-- <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="row hero-section">
+    <div class="col-lg-12 col-md-12 col-sm-12 image-slide">
+
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3500">
+
+            <img th:src="@{images/santorini4.jpg}" class="d-block image" alt="...">
+            <div class="carousel-caption">
+              <h1 class="heading">Greece</h1>
+              <p class="heading1">Travel to the most beautiful places around the world</p>
+
+              <button class="btn1">
+                <span class="circle">
+                  <span class="arrow"></span>
+                </span>
+                <span class="text">Explore Now</span>
+              </button>
+
+            </div>
+
+
+          </div>
+          <div class="carousel-item" data-bs-interval="3500">
+            <img th:src="@{images/japan2.jpg}" class="d-block image" alt="...">
+            <div class="carousel-caption">
+              <h1 class="heading">Japan</h1>
+              <p class="heading1">Travel to the most beautiful places around the world</p>
+
+              <button class="btn1">
+                <span class="circle">
+                  <span class="arrow"></span>
+                </span>
+                <span class="text">Explore Now</span>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="carousel-item" data-bs-interval="3500">
+            <img th:src="@{images/switzerland3.jpg}" class="d-block image" alt="...">
+            <div class="carousel-caption">
+              <h1 class="heading">Switzerland</h1>
+              <p class="heading1">Travel to the most beautiful places around the world</p>
+
+              <button class="btn1">
+                <span class="circle">
+                  <span class="arrow"></span>
+                </span>
+                <span class="text">Explore Now</span>
+              </button>
+            </div>
+
+
+          </div>
+          <div class="carousel-item" data-bs-interval="3500">
+            <img th:src="@{images/rome1.jpg}" class="d-block image" alt="...">
+            <div class="carousel-caption">
+              <h1 class="heading">Italy</h1>
+              <p class="heading1">Travel to the most beautiful places around the world</p>
+
+              <button class="btn1">
+                <span class="circle">
+                  <span class="arrow"></span>
+                </span>
+                <span class="text">Explore Now</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row justify-content-around">
+    <div class="col-lg-9 col-md-9 col-sm-9 selector">
+      <h3 class="travel">Travel the way you what it</h3>
+
+      <form class="form-main" method="POST" action="#" th:action="@{/listing}" th:object="${Packages}">
+
+        <div class="form-group">
+          <label for="destination">Select Destination</label>
+
+          <select class="form-control " id="select1" th:field="*{destination}">
+            <option th:value="Switzerland">Switzerland</option>
+            <option th:value="Japan">Japan</option>
+            <option th:value="Greece">Greece</option>
+            <option th:value="France">France</option>
+            <option th:value="Singapore">Singapore</option>
+            <option th:value="Australia">Australia</option>
+            <option th:value="Italy">Italy</option>
+            <option th:value="Indonesia">Indonesia</option>
+
+          </select>
+        </div>
+
+
+
+        <input type="submit" class="btn5" value="Check Availability">
+
+      </form>
+
+    </div>
+
+  </div>
+
+  </div>
+
+  <div class="container mid">
+    <div class="row">
+      <h2 class="about" id="about1">About Us</h2>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <img src="images/san2.jpg" class="rel">
+        <img src="images/castle.jpg" class="castle">
+        <img src="images/travel2.jpg" class="kyoto">
+
+
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <h3 class="heading3">We Travel Not To Escape Life But for Life not to Escape Us.</h3>
+        <span class="sp2">_________________________</span>
+
+        <p class="sp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus corporis maiores, autem
+          veniam officiis sapiente, culpa, fuga ipsam voluptate ullam ab nulla exercitationem dolorem doloremque.</p>
+
+
+        <p class="sp1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat cum quo magnam odit, ipsa
+          nihil minus quasi ea vitae qui at dolorem corrupti velit unde libero perferendis iure sed inventore impedit
+          consequuntur eaque. Vero commodi dolorem cupiditate numquam culpa ad.
+        </p>
+
+        <button class="btn2">
+          <span class="circle2">
+            <span class="arrow2"></span>
+          </span>
+          <span class="text2">Get Started</span>
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid counter">
+    <div class="row justify-content-around">
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <h1 class="numb">9313</h1>
+        <p class="count"># of Travels</p>
+
+      </div>
+
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <h1 class="numb">8492</h1>
+        <p class="count"># of Clients</p>
+      </div>
+
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <h1 class="numb">92</h1>
+        <p class="count"># of Employees</p>
+      </div>
+
+      <div class="col-lg-2 col-md-2 col-sm-12">
+        <h1 class="numb">110</h1>
+        <p class="count"># of Countries</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container services ">
+
+    <h2 class="about" id="service1">Our Services</h2>
+    <span class="sp3">_________________________</span>
+    <p class="heading4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa explicabo provident, mollitia
+      quidem deleniti tenetur vero asperiores quam? Minima, perferendis.</p>
+
+    <div class="row justify-content-around">
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/airplane.png" class="pic">
+        <p class="inner">Air Ticketing</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/ship-wheel.png" class="pic">
+        <p class="inner">Sea Explorations</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/trekking.png" class="pic">
+        <p class="inner">Trekking</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/property.png" class="pic">
+        <p class="inner">Hotel Accomodations</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/snowboard.png" class="pic">
+        <p class="inner">Ski Experiences</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 ser">
+        <img src="images/island.png" class="pic">
+        <p class="inner">Island Sightning</p>
+        <p class="down">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, debitis cffhfg xgdhd</p>
+        <a href="#" class="learn">Learn More</a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div class="container cont">
+    <h2 class="about">Destinations</h2>
+    <span class="sp3">_________________________</span>
+    <div class="row dest-row">
+      <div class="col-4">
+        <figure><img src="images/singapore1.jpg" class="dest"></figure>
+        <div class="description">
+          <p class="heading5">10 DAYS TOUR </p>
+          <h4 class="heading6">Singapore</h4>
+          <p class="heading7">Marina Bay,Central Business District</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <figure><img src="images/kyoto.jpeg" class="dest"></figure>
+        <div class="description1">
+          <p class="heading5">8 DAYS TOUR </p>
+          <h4 class="heading6">Japan</h4>
+          <p class="heading7">Kyoto City, Kansai region </p>
+        </div>
+
+
+      </div>
+      <div class="col-4">
+        <figure><img src="images/bali1.jpg" class="dest"></figure>
+        <div class="description2">
+          <p class="heading5">11 DAYS TOUR </p>
+          <h4 class="heading6">Indonesia</h4>
+          <p class="heading7">The sacred Bali lakes, Bedugul </p>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="row dest-row1">
+      <div class="col-4">
+        <figure><img src="images/switzerland.jpg" class="dest"></figure>
+
+        <div class="description3">
+          <p class="heading5">7 DAYS TOUR </p>
+          <h4 class="heading6">Switzerland</h4>
+          <p class="heading7">Zurich City, capital of canton</p>
+        </div>
+
+      </div>
+      <div class="col-4">
+        <figure><img src="images/greece.jpg" class="dest"></figure>
+
+        <div class="description4">
+          <p class="heading5">8 DAYS TOUR </p>
+          <h4 class="heading6">Greece</h4>
+          <p class="heading7">Athens, capital of Greece</p>
+        </div>
+
+      </div>
+      <div class="col-4">
+        <figure> <img src="images/australia1.jpg" class="dest"></figure>
+        <div class="description5">
+          <p class="heading5">10 DAYS TOUR </p>
+          <h4 class="heading6">Australia</h4>
+          <p class="heading7">Sydney Opera House</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </div> -->
+
+  <div class="container cont">
+    <h2 class="about" id="desti1">Destinations</h2>
+    <span class="sp3">_________________________</span>
+    <div class="row dest-row">
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure><img src="images/singapore1.jpg" class="dest"></figure>
+          <div class="card-body">
+            <p class="heading5">10 DAYS TOUR </p>
+            <h4 class="heading6">Singapore</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">Marina Bay,Central Business District</p>
+            </div>
+
+            <a href="#" class="btn btn4">31160Rs/person</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure><img src="images/kyoto.jpeg" class="dest"></figure>
+          <div class="card-body">
+
+            <p class="heading5">8 DAYS TOUR </p>
+            <h4 class="heading6">Japan</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">Kyoto City, Kansai region </p>
+            </div>
+
+            <a href="#" class="btn btn4">28420Rs/person</a>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure><img src="images/bali1.jpg" class="dest"></figure>
+          <div class="card-body">
+            <p class="heading5">11 DAYS TOUR </p>
+            <h4 class="heading6">Indonesia</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">The sacred Bali lakes, Bedugul </p>
+            </div>
+
+            <a href="#" class="btn btn4">25780Rs/person</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure><img src="images/switzerland.jpg" class="dest"></figure>
+          <div class="card-body">
+            <p class="heading5">7 DAYS TOUR </p>
+            <h4 class="heading6">Switzerland</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">Zurich City, capital of canton</p>
+            </div>
+
+            <a href="#" class="btn btn4">40260Rs/person</a>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure><img src="images/greece.jpg" class="dest"></figure>
+          <div class="card-body">
+            <p class="heading5">8 DAYS TOUR </p>
+            <h4 class="heading6">Greece</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">Athens, capital of Greece</p>
+            </div>
+
+            <a href="#" class="btn btn4">33800Rs/person</a>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 dest-col">
+        <div class="card">
+          <figure> <img src="images/australia1.jpg" class="dest"></figure>
+          <div class="card-body">
+            <p class="heading5">10 DAYS TOUR </p>
+            <h4 class="heading6">Australia</h4>
+
+            <div class="location">
+              <img src="images/placeholder.png" class="ab">
+              <p class="heading7">Sydney Opera House</p>
+            </div>
+
+            <a href="#" class="btn btn4">38900Rs/person</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container testimonial">
+    <h2 class="about1">Testimonials</h2>
+    <span class="sp4">_________________________</span>
+    <p class="heading8">What our Customer's say</p>
+
+    <section class="section-container">
+
+      <div class="section-grid">
+
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+
+            <div class="section-card">
+              <span><i class="ri-double-quotes-l"></i></span>
+              <img src="images/florist4.jpg" class="test">
+              <h5 class="heading9">Allan Collins</h5>
+              <h6 class="heading10">Managing Director</h6>
+              <p class="heading11">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab necessitatibus deserunt
+                deleniti expedita provident sint.</p>
+
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="section-card">
+              <span><i class="ri-double-quotes-l"></i></span>
+              <img src="images/women2.jpg" class="test">
+              <h5 class="heading9">Tanya Grant</h5>
+              <h6 class="heading10">Doctor</h6>
+              <p class="heading11">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab necessitatibus deserunt
+                deleniti expedita provident sint.</p>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="section-card">
+              <span><i class="ri-double-quotes-l"></i></span>
+              <img src="images/man4.jpg" class="test">
+              <h5 class="heading9">Clay Washington</h5>
+              <h6 class="heading10">Civil Engineer</h6>
+              <p class="heading11">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab necessitatibus deserunt
+                deleniti expedita provident sint.</p>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="section-card">
+              <span><i class="ri-double-quotes-l"></i></span>
+              <img src="images/women3.jpg" class="test">
+              <h5 class="heading9">Ana Hathaway</h5>
+              <h6 class="heading10">UI Desiger</h6>
+              <p class="heading11">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab necessitatibus deserunt
+                deleniti expedita provident sint.</p>
+            </div>
+          </div>
+
+
+        </div>
+    </section>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 news">
+        <h2 class="headingg">Travel, See The World And</h2>
+        <h2 class="headingg1">Get 30% Off On Your Next Trip</h2>
+        <p class="headingg2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet beatae necessitatibus saepe
+          veritatis, dolor nemo nostrum. Earum nulla exercitationem iure!</p>
+          <a href="#" class="button22">Book Now</a>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container" id="faq1">
+    <!-- <h2 class="about">Location</h2> -->
+    <!-- <span class="sp3">_________________________</span> -->
+    <div class="row justify-content-around">
+
+      <div class="col-lg-5 col-md-12 col-sm-12 cont-col">
+        <h4 class="cont-heading">Location</h4>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30168.468276748354!2d72.83589481949022!3d19.061163856957368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e114fa5045%3A0xab01b3ce8aa92ac7!2sBandra%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1721104924262!5m2!1sen!2sin"
+          width="100%" height="310" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </div>
+
+      <div class="col-lg-5 col-md-12 col-sm-12  cont-col1">
+        <h3 class="cont-heading">Frequently Asked Questions</h3>
+        <div class="accordion-container">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What is the best way to book a tour?<span class="icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>You can book a tour directly on our website by selecting your desired package and following the booking
+                process. Alternatively, you can contact our customer service.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What is included in the tour package?<span class="icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Our tour packages typically include accommodation, transportation, guided tours, and some meals. Please
+                refer to the specific tour package for detailed information.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What payment methods are accepted?<span class="icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>We accept various payment methods including credit cards, debit cards, UPI, Net Banking. For more
+                details, please visit our payment information page.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Can I cancel or change my booking? <span class="icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Yes, you can cancel or change your booking. Please refer to our cancellation policy for more details
+                regarding fees and procedures.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Are there any discounts available? <span class="icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>We offer various discounts throughout the year. Please subscribe to our newsletter for more
+                information.</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid footer" id="footer1">
+    <div class="footer-inside">
+      <h3 class="subscribe">Subscribe to our contents</h3>
+      <button class="btn6">
+        <span class="circle6">
+          <span class="arrow6"></span>
+        </span>
+        <span class="text6">Subscribe</span>
+      </button>
+
+    </div>
+    <div class="row">
+
+      <div class="col-12 last">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h2 class="heading12">Travelista</h2>
+            <p class="heading13">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium cupiditate
+              quo exercitationem assume asperiores facilis itaque voluptatibus culpa aut!</p>
+            <a href="#" class="an"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="an"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="an"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="an"><i class="fab fa-instagram"></i></a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <ul class="footer-ul">
+              <h2 class="heading12">Infromation</h2>
+              <li class="footer-list"><a href="#" class="footer-anchor">Online Enquiry</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">General Enquiries</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Booking Conditions</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Privacy and Policy</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Refund Policy</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Call Us</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <ul class="footer-ul">
+              <h2 class="heading12">Experience</h2>
+              <li class="footer-list"><a href="#" class="footer-anchor">Adventure</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Hotel and Restaurant</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Beach</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Nature</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Camping</a></li>
+              <li class="footer-list"><a href="#" class="footer-anchor">Party</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h2 class="heading12">Have a Question?</h2>
+            <p class="para"><i class="ri-map-pin-line"></i> Bandra East,Kala Nagar, Mumbai</p>
+            <p class="para"><i class="ri-phone-line"></i> + (0712) 819 79 555 </p>
+            <p class="para"> <i class="ri-mail-send-line"></i> info@example.com</p>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+    integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"
+    integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $(".numb").counterUp({
+
+        delay: 10,
+        time: 1200
+
+      });
+
+
+    });
+
+
+
+  </script>
+
+
+
+
+
+  <!-- <script src="@{js/bootstrap.js}"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script th:src="@{js/Employee.js}"></script>
+
+</body>
+
+</html>
