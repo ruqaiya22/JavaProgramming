@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.SpringEmployee.EmployeeProject.Module.Customer;
-import com.SpringEmployee.EmployeeProject.Module.Employee;
+
 
 public interface EmployeeRepository extends JpaRepository <Customer, Integer>{
 
