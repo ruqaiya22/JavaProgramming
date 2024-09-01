@@ -4,12 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Alike&family=Headland+One&family=IM+Fell+Great+Primer:ital@0;1&family=Jomolhari&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sail&family=Sedan+SC&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
 body{
-    /* background-image:url('../img/bg-2.jpg'); */
+    /* background-image:url('../img/bg-2.jpg');*/
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
+  
   .nav-icon
   {
       margin-left: 425px;
@@ -110,9 +111,13 @@ li {
 /* login button */
 .buttonn1 {
     margin: 20px;
-    padding: 7px 12px;
+    padding: 6px 20px;
     font-size: 16px;
     margin-left: 10px;
+     border-radius: 30px;
+    background-color: #00bfff;
+    font-family: "Playfair Display", serif;
+      
 }
 
 .modal {
@@ -1288,6 +1293,8 @@ font-family: "Playfair Display", serif;
     font-family: "Alike", serif;
    
  }
+
+ 
 
   @media only screen and (min-width:457px) and (max-width:768px){
 

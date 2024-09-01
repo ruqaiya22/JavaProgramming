@@ -126,9 +126,9 @@
 
     <div class="form-container">
         <h1>Book Now</h1>
-        <form method="POST" th:object="${theCustInfo}" th:action="@{save}">
+        <form method="POST" th:object="${MyBooking}" th:action="@{/saveUpdate}">
             <div class="section-title">Personal Details</div>
-            
+           
             <div>
                 <label for="firstname" >First Name </label>
                 <input type="text" id="firstname" name="firstname" required th:field="*{firstname}">

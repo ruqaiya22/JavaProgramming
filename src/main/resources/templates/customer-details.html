@@ -34,36 +34,55 @@ text-decoration: none;
                         <tr>
                         
                              <th>id</th>
-                            <th>destination</th>
+                             <th>destination</th>
                             <th>firstname</th>
                             <th>lastname</th>
                             <th>mobile_no</th>
                             <th>email</th>
-                            <th>flight_no</th>
                             <th>flight_bill</th>
-                            <th>hotel_name</th>
                             <th>hotel_bill</th>
-                          
+                            <th>total_cost</th>
+                            <th>update/delete booking</th>
+
+                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="custDetail: ${Packages}">
+                        <tr th:each="custDetail: ${Cust}">
                             <td th:text="${custDetail.id}"></td>
                             <td th:text="${custDetail.destination}"></td>
                             <td th:text="${custDetail.firstname}"></td>
                             <td th:text="${custDetail.lastname}"></td>
                             <td th:text="${custDetail.mobile_no}"></td>
                             <td th:text="${custDetail.email}"></td>
-                            <td th:text="${custDetail.flight_no}"></td>
                             <td th:text="${custDetail.flight_bill}"></td>
-                            <td th:text="${custDetail.hotel_name}"></td>
                             <td th:text="${custDetail.hotel_bill}"></td>
+                            <td th:text="${custDetail.total_cost}"></td>
+                            <td>
+                                <!-- <form action="#" th:action="@{/updateData}" method="POST">
+
+                                    <input type="hidden" name="customerId" th:value="${tempEmployee.id}" />
+                                    <button type="submit" class="btn btn-info btn-sm me-1" style="float:left;">Update</button>
+    
+                                </form> -->
+                        
+                            <form action="#" th:action="@{deleteData}" method="POST">
+
+								<input type="hidden" name="customerId" th:value="${tempEmployee.id}" />
+								<button type="submit" class="btn btn-danger btn-sm"
+										onclick="if (!(confirm('Are you sure you want to delete this booking?'))) return false">
+									Delete
+								</button>
+
+							</form>
+                        </td>
+                            
                     
                         </tr>
                     </tbody>
                    
                 </table>
-                <button type="btn" class="btn0"><a th:href="@{/}">Pay</a></button>
+                <button type="btn" class="btn0"><a th:href="@{/}">Confirm</a></button>
             
             </div>
         </div>

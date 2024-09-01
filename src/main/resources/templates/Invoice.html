@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Bill</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<style>
+    .btn0{
+    background-color: royalblue;
+    border-radius: 10px;
+    color:white;
+}
+
+.btn0:hover{
+    background-color: cornflowerblue;
+}
+
+a{
+text-decoration: none;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+    <form method="POST" th:object="${theCustInfo}" th:action="@{final}">
+    <div class="container">
+        <h3 class="text-center">Bill</h3>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered  table align-middle border-primary">
+                    <thead class="table-info">
+                        <h4 class="text-center">Personal Details</h4>
+                        <tr>
+                            <th>firstname</th>
+                            <th>lastname</th>
+                            <th>mobile_no</th>
+                            <th>email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="travelBill: ${theCustInfo}">
+                            <td th:text="${travelBill.firstname}"></td>
+                            <td th:text="${travelBill.lastname}"></td>
+                            <td th:text="${travelBill.mobile_no}"></td>
+                            <td th:text="${travelBill.email}"></td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    <table class="table table-bordered table align-middle  border-primary">
+                    <thead class="table-info">
+                        <h4 class="text-center">Flight</h4>
+                        <tr>
+                            <th>flight_rate</th>
+                            <th>no_of_people</th>
+                            <th>flight_bill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+                            <td th:text="${theCustInfo.flight_rate}"></td>
+                            <td th:text="${theCustInfo.no_of_people}"></td>
+                            <td th:text="${bill.flightBill}"></td>
+
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    <table class="table table-bordered table align-middle border-primary">
+                    <thead class="table-info">
+                        <h4 class="text-center">Hotel</h4>
+                        <tr>
+                            <th>hotel_rate</th>
+                            <th>no_of_rooms</th>
+                            <th>days</th>
+                            <th>hotel_bill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td th:text="${theCustInfo.hotel_rate}"></td>
+                            <td th:text="${theCustInfo.no_of_rooms}"></td>
+                            <td th:text="${bill.days}"></td>
+                            <td th:text="${bill.hotelBill}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label for="total" ><b>Total Bill</b></label>
+                <input type="text" id="total" name="total"  th:value="${bill.totalBill}" disabled>
+
+            </div>
+        </div>
+    </div>
+    
+        
+    <!-- <input type = "submit" value="Proceed to pay" > -->
+    <input type="hidden" name="id" th:value="${theCustInfo.id}"/>
+	<button type="submit" class="btn btn-info btn-sm me-1">Proceed to pay</button>
+
+    </form>
+
+
+    <script src="@{js/bootstrap.js}"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@ import jakarta.persistence.Version;
 
 @Entity  //An entity represents a table stored in a database.
 @Table(name="Packages")
-@SecondaryTable(name="CustomerInfo", pkJoinColumns= @PrimaryKeyJoinColumn(name="id", referencedColumnName= "id" ))
+//@SecondaryTable(name="Customer_Info", pkJoinColumns= @PrimaryKeyJoinColumn(name="id", referencedColumnName= "id" ))
 public class Customer {
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -40,66 +40,24 @@ public class Customer {
 	@Column(name="hotel_rate")
 	private int hotel_rate;
 	
-	//Second table fields
 	
-	@Column(table="CustomerInfo")
-	private String firstname;
-	
-	@Column(table="CustomerInfo")
-	private String lastname;
-	
-	@Column(table="CustomerInfo")
-	private long mobile_no;
-	
-	@Column(table="CustomerInfo")
-	private String email;
-	
-	@Column(table="CustomerInfo")
-	private int no_of_people;
-	
-	@Column(table="CustomerInfo")
-	private int no_of_rooms;
-	
-//	private Integer num;
-//
-//	  public void setNum(Integer i) {
-//	    this.num = i;
-//	  }
-//
-//	  public int getNum() {
-//	    return this.num;
-//	  }
-
-public Customer() {
+	public Customer() {
 		
 	}
 
-//	public Customer(String destination, int flag, String flight_no, int flight_rate, String hotel_name, int hotel_rate) {
-//
-//		this.destination = destination;
-//		this.flag = flag;
-//		this.flight_no = flight_no;
-//		this.flight_rate = flight_rate;
-//		this.hotel_name = hotel_name;
-//		this.hotel_rate = hotel_rate;
-//	}
-//
-//	
-//	public Customer(int id, String destination, int flag, String flight_no, int flight_rate, String hotel_name,
-//			int hotel_rate) {
-//	
-//		this.id = id;
-//		this.destination = destination;
-//		this.flag = flag;
-//		this.flight_no = flight_no;
-//		this.flight_rate = flight_rate;
-//		this.hotel_name = hotel_name;
-//		this.hotel_rate = hotel_rate;
-//	}
+	public Customer(String destination, int flag, String flight_no, int flight_rate, String hotel_name, int hotel_rate) {
+
+		this.destination = destination;
+		this.flag = flag;
+		this.flight_no = flight_no;
+		this.flight_rate = flight_rate;
+		this.hotel_name = hotel_name;
+		this.hotel_rate = hotel_rate;
+	}
+
 	
 	public Customer(int id, String destination, int flag, String flight_no, int flight_rate, String hotel_name,
-			int hotel_rate, String firstname, String lastname, long mobile_no, String email, int no_of_people,
-			int no_of_rooms) {
+			int hotel_rate) {
 	
 		this.id = id;
 		this.destination = destination;
@@ -108,54 +66,19 @@ public Customer() {
 		this.flight_rate = flight_rate;
 		this.hotel_name = hotel_name;
 		this.hotel_rate = hotel_rate;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.mobile_no = mobile_no;
-		this.email = email;
-		this.no_of_people = no_of_people;
-		this.no_of_rooms = no_of_rooms;
 	}
 	
-	
-
-	
-
-	public Customer(String destination, int flag, String flight_no, int flight_rate, String hotel_name, int hotel_rate,
-			String firstname, String lastname, long mobile_no, String email, int no_of_people, int no_of_rooms) {
-		this.destination = destination;
-		this.flag = flag;
-		this.flight_no = flight_no;
-		this.flight_rate = flight_rate;
-		this.hotel_name = hotel_name;
-		this.hotel_rate = hotel_rate;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.mobile_no = mobile_no;
-		this.email = email;
-		this.no_of_people = no_of_people;
-		this.no_of_rooms = no_of_rooms;
-	}
-
-//	@Override
-//	public String toString() {
-//		return "Customer [id=" + id + ", destination=" + destination + ", flag=" + flag + ", flight_no=" + flight_no
-//				+ ", flight_rate=" + flight_rate + ", hotel_name=" + hotel_name + ", hotel_rate=" + hotel_rate + "]";
-//	}
 	
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", destination=" + destination + ", flag=" + flag + ", flight_no=" + flight_no
-				+ ", flight_rate=" + flight_rate + ", hotel_name=" + hotel_name + ", hotel_rate=" + hotel_rate
-				+ ", firstname=" + firstname + ", lastname=" + lastname + ", mobile_no=" + mobile_no + ", email="
-				+ email + ", no_of_people=" + no_of_people + ", no_of_rooms=" + no_of_rooms + "]";
+				+ ", flight_rate=" + flight_rate + ", hotel_name=" + hotel_name + ", hotel_rate=" + hotel_rate + "]";
 	}
 	
-
+	
 	public int getId() {
 		return id;
 	}
-
-	
 
 	public void setId(int id) {
 		this.id = id;
@@ -210,54 +133,7 @@ public Customer() {
 	}
 	
 	
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public long getMobile_no() {
-		return mobile_no;
-	}
-
-	public void setMobile_no(long mobile_no) {
-		this.mobile_no = mobile_no;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getNo_of_people() {
-		return no_of_people;
-	}
-
-	public void setNo_of_people(int no_of_people) {
-		this.no_of_people = no_of_people;
-	}
-
-	public int getNo_of_rooms() {
-		return no_of_rooms;
-	}
-
-	public void setNo_of_rooms(int no_of_rooms) {
-		this.no_of_rooms = no_of_rooms;
-	}
-
+	
 	
 	
 
