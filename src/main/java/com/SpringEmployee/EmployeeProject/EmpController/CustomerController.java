@@ -23,10 +23,11 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 @Controller
+
 public class CustomerController {
 	
-	private EmployeeService employeeService;
-	
+	private EmployeeService employeeService;  //Declaring private EmployeeService employeeService; within a class (commonly a controller) allows that class to utilize the business logic defined in EmployeeService.
+											  //employeeService is the variable
 	private CustInfoService custInfoService;
 	
 	@Value("${login.username}")
@@ -35,7 +36,7 @@ public class CustomerController {
 	@Value("${login.password}")
 	private String password;
 	
-	Billing theBilling = new Billing();
+	Billing theBilling = new Billing();  //is a common way to create a new instance of a class i.e object
 	CustInfo theCustInfo = new CustInfo(); 
 	
 	public CustomerController(EmployeeService employeeService, CustInfoService custInfoService) {
@@ -52,7 +53,7 @@ public class CustomerController {
 	public String showIndex(Model theModel) {
 		theModel.addAttribute("Packages", new Customer());//Packages is name of attribute it can be anything
 		
-		return "EmployeeForm";
+		return "Travel_index";
 	}
 	
 
@@ -131,9 +132,6 @@ public class CustomerController {
 		
 		theModel.addAttribute("theCustInfo",theCustomer);
 		theModel.addAttribute("bill",theBilling);
-		System.out.println("Invoice:::::::::::::::::::::::");
-		System.out.println(theCustInfo);
-	   System.out.println(theBilling);
 		return "finalInvoice";
 	}
 	
@@ -149,8 +147,6 @@ public class CustomerController {
 	
 	public String showList(@ModelAttribute("login") Login login, Model theModel) {
 		
-		System.out.println(login);
-		System.out.println("username : "+userName + " Password:"+password);
 		if(userName.equals(login.getUsername())) {
 		
 			List<CustInfo> customer=custInfoService.findAll();
@@ -187,17 +183,17 @@ public class CustomerController {
 	
 	
 	@RequestMapping("/updateData")
-    public String showUpdateForm(@RequestParam("id") int Id, Model theModel) {
-		CustInfo theCustInfo = custInfoService.findById(Id);
-        theModel.addAttribute("MyBooking", theCustInfo);
-        return "updateForm"; // Return the view name where the form is shown
-    }
+	public String showUpdateForm(@RequestParam("id") int id, Model theModel) {
+	    CustInfo theCustInfo = custInfoService.findById(id);
+	    theModel.addAttribute("MyBooking", theCustInfo);
+	    return "updateForm"; // Thymeleaf view for update
+	}
 
-    @RequestMapping("/saveUpdate")
-    public String updatedtheCustInfo(@ModelAttribute("MyBooking") CustInfo theCustInfo) {
-    	custInfoService.updateCustInfo(theCustInfo.getId(), theCustInfo);
-        return "redirect:/custList"; // Redirect to the list page after update
-    }
+	@PostMapping("/saveUpdate")
+	public String updatedCustInfo(@ModelAttribute("MyBooking") CustInfo theCustInfo) {
+	    custInfoService.updateCustInfo(theCustInfo.getId(), theCustInfo);
+	    return "redirect:/custList"; // Redirect to the updated list
+	}
     
 
 }

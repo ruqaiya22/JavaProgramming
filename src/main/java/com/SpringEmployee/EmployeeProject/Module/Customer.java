@@ -13,7 +13,7 @@ import jakarta.persistence.Version;
 
 @Entity  //An entity represents a table stored in a database.
 @Table(name="Packages")
-//@SecondaryTable(name="Customer_Info", pkJoinColumns= @PrimaryKeyJoinColumn(name="id", referencedColumnName= "id" ))
+
 public class Customer {
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -69,7 +69,7 @@ public class Customer {
 	}
 	
 	
-	@Override
+	@Override  //Indicates that the toString method is overridden from the object class
 	public String toString() {
 		return "Customer [id=" + id + ", destination=" + destination + ", flag=" + flag + ", flight_no=" + flight_no
 				+ ", flight_rate=" + flight_rate + ", hotel_name=" + hotel_name + ", hotel_rate=" + hotel_rate + "]";
@@ -131,12 +131,6 @@ public class Customer {
 	public void setHotel_rate(int hotel_rate) {
 		this.hotel_rate = hotel_rate;
 	}
-	
-	
-	
-	
-	
-
 	
 
 }

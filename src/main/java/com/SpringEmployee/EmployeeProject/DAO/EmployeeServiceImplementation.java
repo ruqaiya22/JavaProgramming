@@ -20,7 +20,7 @@ import jakarta.transaction.Transactional;
 public class EmployeeServiceImplementation implements EmployeeService {
 
 	 private EmployeeRepository employeeRepository;
-	 EntityManager entityManager;
+	 EntityManager entityManager;  //Interface that acts a bridge between application and data
 
 	    @Autowired
 	    public EmployeeServiceImplementation(EmployeeRepository theEmployeeRepository, EntityManager entityManager) {
@@ -28,7 +28,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	        entityManager=this.entityManager;
 	    }
 
-	    @Override
+	    @Override  //method is overridden from the service class
 	    public List<Customer> findAll() {
 	    	
 	    	

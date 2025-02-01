@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" th:href="@{css/bootstrap.css}" />
-  <link rel="stylesheet" th:href="@{css/EmployeeStyle.css}" />
+  <link rel="stylesheet" th:href="@{css/Travel_style.css}" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -17,15 +17,17 @@
 
 <body>
 
+ 
+
+
   <header>
-
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div class="container-fluid">
 
         <div class="logo"><img src="images/logo1.png" class="lo1"> </div>
 
+        
         <!-- toggler -->
         <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -62,18 +64,33 @@
                 <a class="nav-link anchor  mx-2" href="#footer1">Contact</a>
               </li>
               <!-- sign in & Add to Cart -->
-              <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center flex-grow-3 gap-3">
-                <li class="menu-list">
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+             <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center flex-grow-3 gap-3">
+    <ul class="menu-list" style="list-style: none; padding: 0; display: flex; gap: 15px;">
+        <!-- Facebook Icon -->
+        <li>
+            <a href="https://www.facebook.com" target="_blank" style="text-decoration: none; font-size: 24px; color: #4267B2;">
+                <i class="fab fa-facebook" style="color: white;"></i>
+            </a>
+        </li>
+        <!-- Twitter Icon -->
+        <li>
+            <a href="https://www.twitter.com" target="_blank" style="text-decoration: none; font-size: 24px; color: #1DA1F2;">
+                <i class="fab fa-twitter" style="color: white;"></i>
+            </a>
+        </li>
+        <!-- Instagram Icon -->
+        <li>
+            <a href="https://www.instagram.com" target="_blank" style="text-decoration: none; font-size: 24px; color: #E1306C;">
+                <i class="fab fa-instagram" style="color: white;"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
-                </li>
-              </div>
 
               <a th:href="@{/showLogin}"><button id="loginButton" class="buttonn1">Login</button></a>
             </ul>
-              
+    
           </div>
         </div>
       </div>
@@ -93,12 +110,13 @@
               <h1 class="heading">Greece</h1>
               <p class="heading1">Travel to the most beautiful places around the world</p>
 
-              <button class="btn1">
+              <a href="#desti1"><button class="btn1">
                 <span class="circle">
                   <span class="arrow"></span>
                 </span>
                 <span class="text">Explore Now</span>
               </button>
+            </a>
 
             </div>
 
@@ -168,7 +186,7 @@
   </div>
 
   <div class="row justify-content-around">
-    <div class="col-lg-9 col-md-9 col-sm-9 selector">
+    <div class="col-lg-9 col-md-9 col-sm-9 selector" id="booknow">
       <h3 class="travel">Travel the way you what it</h3>
 
       <form class="form-main" method="POST" action="#" th:action="@{/listing}" th:object="${Packages}">
@@ -323,78 +341,7 @@
     </div>
   </div>
 
-  <!-- <div class="container cont">
-    <h2 class="about">Destinations</h2>
-    <span class="sp3">_________________________</span>
-    <div class="row dest-row">
-      <div class="col-4">
-        <figure><img src="images/singapore1.jpg" class="dest"></figure>
-        <div class="description">
-          <p class="heading5">10 DAYS TOUR </p>
-          <h4 class="heading6">Singapore</h4>
-          <p class="heading7">Marina Bay,Central Business District</p>
-        </div>
-      </div>
-      <div class="col-4">
-        <figure><img src="images/kyoto.jpeg" class="dest"></figure>
-        <div class="description1">
-          <p class="heading5">8 DAYS TOUR </p>
-          <h4 class="heading6">Japan</h4>
-          <p class="heading7">Kyoto City, Kansai region </p>
-        </div>
-
-
-      </div>
-      <div class="col-4">
-        <figure><img src="images/bali1.jpg" class="dest"></figure>
-        <div class="description2">
-          <p class="heading5">11 DAYS TOUR </p>
-          <h4 class="heading6">Indonesia</h4>
-          <p class="heading7">The sacred Bali lakes, Bedugul </p>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <div class="row dest-row1">
-      <div class="col-4">
-        <figure><img src="images/switzerland.jpg" class="dest"></figure>
-
-        <div class="description3">
-          <p class="heading5">7 DAYS TOUR </p>
-          <h4 class="heading6">Switzerland</h4>
-          <p class="heading7">Zurich City, capital of canton</p>
-        </div>
-
-      </div>
-      <div class="col-4">
-        <figure><img src="images/greece.jpg" class="dest"></figure>
-
-        <div class="description4">
-          <p class="heading5">8 DAYS TOUR </p>
-          <h4 class="heading6">Greece</h4>
-          <p class="heading7">Athens, capital of Greece</p>
-        </div>
-
-      </div>
-      <div class="col-4">
-        <figure> <img src="images/australia1.jpg" class="dest"></figure>
-        <div class="description5">
-          <p class="heading5">10 DAYS TOUR </p>
-          <h4 class="heading6">Australia</h4>
-          <p class="heading7">Sydney Opera House</p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-  </div> -->
-
+  
   <div class="container cont">
     <h2 class="about" id="desti1">Destinations</h2>
     <span class="sp3">_________________________</span>
@@ -584,7 +531,7 @@
         <h2 class="headingg1">Get 30% Off On Your Next Trip</h2>
         <p class="headingg2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet beatae necessitatibus saepe
           veritatis, dolor nemo nostrum. Earum nulla exercitationem iure!</p>
-          <a href="#" class="button22">Book Now</a>
+          <a href="#booknow" class="button22">Book Now</a>
 
       </div>
     </div>
@@ -731,6 +678,20 @@
     </div>
 
   </div>
+  <div class="container-fluid copyright ">
+    <div class="row">
+
+        <div class="col-12">
+
+           <h5 class="headingCopy"> © Copyright 2024. All Rights Reserved.</h5>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="whatsapp_float">
+    <a href=" https://wa.me/9022119030" target="_blank"><img src="images/WhatsApp.png" alt="" width="50px" class="whatsapp_float_btn"> </a>
+ </div>
 
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"

@@ -16,7 +16,8 @@ import jakarta.persistence.EntityManager;
 public class CustInfoImplementation implements CustInfoService{
 	
 	private CustomerRepository customerRepository;
-	EntityManager entityManager;
+	EntityManager entityManager;    //This line declares an instance of EntityManager named entityManager.
+									//The EntityManager is used to perform CRUD (Create, Read, Update, Delete) operations on entities.
 	
 	
 	@Autowired
@@ -64,30 +65,31 @@ public class CustInfoImplementation implements CustInfoService{
 	
 	
 	@Override
-	public CustInfo updateCustInfo(int Id, CustInfo updatedtheCustInfo) {
-        Optional<CustInfo> optionalCustInfo = customerRepository.findById(Id);
-        if (optionalCustInfo.isPresent()) {
-        	CustInfo existingCustInfo = optionalCustInfo.get();
-        	existingCustInfo.setId(updatedtheCustInfo.getId());
-        	existingCustInfo.setFirstname(updatedtheCustInfo.getFirstname());
-        	existingCustInfo.setLastname(updatedtheCustInfo.getLastname());
-        	existingCustInfo.setMobile_no(updatedtheCustInfo.getMobile_no());
-        	existingCustInfo.setEmail(updatedtheCustInfo.getEmail());
-        	existingCustInfo.setDeparture_day(updatedtheCustInfo.getDeparture_day());
-        	existingCustInfo.setDeparture_time(updatedtheCustInfo.getDeparture_time());
-        	existingCustInfo.setNo_of_people(updatedtheCustInfo.getNo_of_people());
-        	existingCustInfo.setFlight_rate(updatedtheCustInfo.getFlight_rate());
-        	existingCustInfo.setCheck_in(updatedtheCustInfo.getCheck_in());
-        	existingCustInfo.setCheck_out(updatedtheCustInfo.getCheck_out());
-        	existingCustInfo.setNo_of_rooms(updatedtheCustInfo.getNo_of_rooms());
-        	existingCustInfo.setHotel_rate(updatedtheCustInfo.getHotel_rate());
-            return customerRepository.save(existingCustInfo);  // This will update the existing entity
-        } else {
-            // Handle the case where the Customer with the given ID is not found
-            throw new RuntimeException("Customer not found with id: " + Id);
-        }
+	public CustInfo updateCustInfo(int id, CustInfo updatedCustInfo) {
+	    Optional<CustInfo> optionalCustInfo = customerRepository.findById(id);
+	    if (optionalCustInfo.isPresent()) {
+	        CustInfo existingCustInfo = optionalCustInfo.get();
+	        // Update fields
+	        existingCustInfo.setFirstname(updatedCustInfo.getFirstname());
+	        existingCustInfo.setLastname(updatedCustInfo.getLastname());
+	        existingCustInfo.setMobile_no(updatedCustInfo.getMobile_no());
+	        existingCustInfo.setEmail(updatedCustInfo.getEmail());
+	        existingCustInfo.setDeparture_day(updatedCustInfo.getDeparture_day());
+	        existingCustInfo.setDeparture_time(updatedCustInfo.getDeparture_time());
+	        existingCustInfo.setNo_of_people(updatedCustInfo.getNo_of_people());
+	        existingCustInfo.setFlight_rate(updatedCustInfo.getFlight_rate());
+	        existingCustInfo.setCheck_in(updatedCustInfo.getCheck_in());
+	        existingCustInfo.setCheck_out(updatedCustInfo.getCheck_out());
+	        existingCustInfo.setNo_of_rooms(updatedCustInfo.getNo_of_rooms());
+	        existingCustInfo.setHotel_rate(updatedCustInfo.getHotel_rate());
+	        return customerRepository.save(existingCustInfo);
+	    } else {
+	        throw new RuntimeException("Customer not found with ID: " + id);
+	    }
+	}
+	
     }
 	
 
 
-}
+

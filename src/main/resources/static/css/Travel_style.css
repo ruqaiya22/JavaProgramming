@@ -1299,6 +1299,27 @@ font-family: "Playfair Display", serif;
    
  }
 
+ .copyright{
+    width: 100%;
+    height:70px;
+    background-color: #333;
+ }
+
+ .headingCopy{
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+ }
+
+ .whatsapp_float
+{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+
+}
+
  
 
   @media only screen and (min-width:457px) and (max-width:768px){
